@@ -28,7 +28,6 @@ setup(
     entry_points={
         'console_scripts': [
             'fakecamcli=fakecam.cli:main',
-            'fakecamgui=fakecam.gui:main',
         ],
     },
 )

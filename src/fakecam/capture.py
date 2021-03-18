@@ -14,6 +14,8 @@ FHD = (1080, 1920)
 HD = (720, 1280)
 NTSC = (480, 720)
 
+THRESHOLD = 0.2
+
 
 cvNet = cv2.dnn.readNetFromTensorflow(os.path.join(os.path.dirname(__file__), 'frozen_graph.pb'))
 cvNet.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
@@ -36,7 +38,7 @@ def get_mask(frame, scaler, dilation, height, width):
     scaled_segment_scores = scaler.scale_and_crop_to_input_tensor_shape(
         segment_logits, True
     )
-    mask = to_mask_tensor(scaled_segment_scores, 0.75)
+    mask = to_mask_tensor(scaled_segment_scores, THRESHOLD)
     mask = cv2.dilate(mask, dilation, iterations=1)
     mask = cv2.blur(mask, (30, 30))
     return mask

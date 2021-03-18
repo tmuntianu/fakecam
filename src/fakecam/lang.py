@@ -1,4 +1,4 @@
-INSTRUCTIONS = "The fake cemera device is not accessible. Make sure you have installed and activated " \
+INSTRUCTIONS = "The fake camera device is not accessible. Make sure you have installed and activated " \
                "v4l2loopback-dkms. On debian and Ubuntu derivative distributions, this is done with the following " \
                "command - for other systems check your provider's documentation and package repositories for a " \
                "similar package:\n\n" \
